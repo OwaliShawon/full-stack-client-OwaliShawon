@@ -15,13 +15,11 @@ import AddProduct from './components/AddProduct/AddProduct';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Router>
         <div>
           <Header></Header>
-
           <hr />
-
           <Switch>
             <Route exact path="/">
               <Home />

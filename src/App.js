@@ -13,6 +13,7 @@ import Header from './components/Header/Header';
 import AddProduct from './components/AddProduct/AddProduct';
 import ManageProduct from './components/ManageProduct/ManageProduct';
 import { createContext, useState } from 'react';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 
 export const UserContext = createContext();
@@ -39,13 +40,16 @@ function App() {
               <Route path="/home">
                 <Home />
               </Route>
-              <Route path="/inventory">
+
+              <Route path="/orders">
+
+              </Route>
+
+
+              <PrivateRoute path="/admin">
                 <Inventory />
-              </Route>
-              <Route path="/login">
-                <Login />
-              </Route>
-              <Route path="/admin">
+              </PrivateRoute>
+              <Route path="/inventory">
                 <Inventory />
               </Route>
               <Route path="/addProduct">
@@ -53,6 +57,10 @@ function App() {
               </Route>
               <Route path="/manageProduct">
                 <ManageProduct />
+              </Route>
+
+              <Route path="/login">
+                <Login />
               </Route>
             </Switch>
           </div>

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useHistory, useLocation } from 'react-router';
 import { UserContext } from '../../App';
-import { createUserWithEmailAndPassword, handleFbSignIn, handleGoogleSignIn, handleSignOut, initializeLoginFramework, signInWithEmailAndPassword } from './loginManager';
+import { createUserWithEmailAndPassword, handleGoogleSignIn, handleSignOut, initializeLoginFramework, signInWithEmailAndPassword } from './loginManager';
 
 const Login = () => {
     const [newUser, setNewUser] = useState(false);
@@ -27,13 +27,6 @@ const Login = () => {
             })
     }
 
-    // const fbSignIn = () => {
-    //     handleFbSignIn()
-    //         .then(res => {
-    //             handleResponse(res, true);
-    //         })
-
-    // }
 
     const signOut = () => {
         handleSignOut()
@@ -86,10 +79,11 @@ const Login = () => {
     return (
         <div style={{ textAlign: 'center' }}>
             { user.isSignedIn ? <button onClick={signOut}>Sign Out</button> :
-                <button onClick={googleSignIn}>Sign In</button>
+                <button onClick={googleSignIn}>Google Sign In</button>
             }
+
             <br />
-            {/* <button onClick={fbSignIn}>Sign in using Facebook</button> */}
+
             {
                 user.isSignedIn && <div>
                     <p>Welcome, {user.name}!</p>

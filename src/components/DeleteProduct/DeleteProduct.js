@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 
 const DeleteProduct = (props) => {
     const { name, weight, price, imageUrl, _id } = props.product;
@@ -11,6 +12,7 @@ const DeleteProduct = (props) => {
             // body: JSON.stringify(id)
         })
             .then(() => { console.log('remove') })
+
     }
 
     return (

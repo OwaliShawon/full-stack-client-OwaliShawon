@@ -1,4 +1,3 @@
-// import * as firebase from "firebase/app";
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
@@ -29,19 +28,6 @@ export const handleGoogleSignIn = () => {
         })
 }
 
-// export const handleFbSignIn = () => {
-//     const fbProvider = new firebase.auth.FacebookAuthProvider();
-//     return firebase.auth().signInWithPopup(fbProvider).then(function (result) {
-//         var token = result.credential.accessToken;
-//         var user = result.user;
-//         user.success = true;
-//         return user;
-//     }).catch(function (error) {
-//         var errorCode = error.code;
-//         var errorMessage = error.message;
-//         console.log(errorCode, errorMessage)
-//     });
-// }
 
 export const handleSignOut = () => {
     return firebase.auth().signOut()

@@ -11,7 +11,7 @@ const Inventory = () => {
 
             <Link to='/addProduct'>Add Product</Link>
             <br />
-            <Link to='/ManageProduct'>Manage Product</Link>
+            <Link to='/manageProduct'>Manage Product</Link>
 
         </div>
     );

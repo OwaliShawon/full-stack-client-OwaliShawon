@@ -28,7 +28,7 @@ const AddProduct = () => {
         }
 
         // console.log(data)
-        console.log(productDetails);
+        // console.log(productDetails);
         handleAddProduct(productDetails);
 
     };

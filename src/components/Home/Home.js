@@ -17,7 +17,7 @@ const Home = () => {
     // console.log(products);
 
     return (
-        <div>
+        <div className="row">
             {
                 products.map((product) => <Product product={product}></Product>)
             }

@@ -11,38 +11,56 @@ import Inventory from './components/Inventory/Inventory';
 import Login from './components/Login/Login';
 import Header from './components/Header/Header';
 import AddProduct from './components/AddProduct/AddProduct';
+import ManageProduct from './components/ManageProduct/ManageProduct';
+import { createContext, useState } from 'react';
+
+
+export const UserContext = createContext();
 
 
 function App() {
+
+  const [loggedInUser, setLoggedInUser] = useState({});
+
   return (
-    <div>
-      <Router>
-        <div>
-          <Header></Header>
-          <hr />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/home">
-              <Home />
-            </Route>
-            <Route path="/inventory">
-              <Inventory />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/admin">
-              <Inventory />
-            </Route>
-            <Route path="/addProduct">
-              <AddProduct />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    </div>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+
+      <h3>email: {loggedInUser.email}</h3>
+
+      <div>
+        <Router>
+          <div>
+            <Header></Header>
+            <hr />
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/home">
+                <Home />
+              </Route>
+              <Route path="/inventory">
+                <Inventory />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route path="/admin">
+                <Inventory />
+              </Route>
+              <Route path="/addProduct">
+                <AddProduct />
+              </Route>
+              <Route path="/manageProduct">
+                <ManageProduct />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </div>
+
+    </UserContext.Provider>
+
   );
 }
 

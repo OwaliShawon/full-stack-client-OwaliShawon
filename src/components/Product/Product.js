@@ -5,8 +5,8 @@ import { Button, Col } from 'react-bootstrap';
 const Product = (props) => {
     const { name, weight, price, imageUrl } = props.product;
     // console.log(product);
-    return (
 
+    return (
         <div className='col-md-3'>
             <img src={imageUrl} style={{ height: '300px' }}></img>
             <h3>{name}</h3>
@@ -15,7 +15,6 @@ const Product = (props) => {
                 <Button>Buy Now</Button>
             </div>
         </div>
-
     );
 };
 

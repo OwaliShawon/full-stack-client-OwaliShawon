@@ -1,19 +1,43 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 import './Header.css';
+import logo from '../../logo.png'
 
 const Header = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+    console.log(loggedInUser.isSignedIn);
+
+    let AuthButton;
+
+
+
+    // const isLoggedIn = {
+    //     if(loggedInUser) {
+    //         return <Link>{loggedInUser.name}</Link>;
+    //     }
+    // }
+
     return (
         <div className="header">
-            {/* <img src={logo} alt=""/> */}
+            <Link to='/'><img src={logo} alt="" /></Link>
+
             <nav>
                 <Link to="/home">Home</Link>
-                <Link to="/order">Order</Link>
+                <Link to="/orders">Orders</Link>
                 <Link to="/admin">Admin</Link>
                 <Link to="/deals">Deals</Link>
-                <Link to="/login">Login</Link>
 
-                {/* <button onClick={() => setLoggedInUser({})}>Sign out</button> */}
+                {
+                    loggedInUser.isSignedIn ? AuthButton = <button onClick={() => setLoggedInUser({})}>Logout</button>
+                        : AuthButton = <Link to="/login">Login</Link>
+
+                }
+
+                <br />
+
+                <Link>{loggedInUser.name}</Link>
             </nav>
         </div>
     );

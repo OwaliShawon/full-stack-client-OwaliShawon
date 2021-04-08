@@ -14,20 +14,17 @@ import AddProduct from './components/AddProduct/AddProduct';
 import ManageProduct from './components/ManageProduct/ManageProduct';
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-
+import NoMatch from './components/NoMatch/NoMatch';
+import Order from './components/Order/Order';
+import Orders from './components/Orders/Orders';
 
 export const UserContext = createContext();
 
-
 function App() {
-
   const [loggedInUser, setLoggedInUser] = useState({});
 
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-
-      <h3>email: {loggedInUser.email}</h3>
-
       <div>
         <Router>
           <div>
@@ -41,9 +38,12 @@ function App() {
                 <Home />
               </Route>
 
-              <Route path="/orders">
-
-              </Route>
+              <PrivateRoute path="/orders">
+                <Orders />
+              </PrivateRoute>
+              <PrivateRoute path="/order">
+                <Order />
+              </PrivateRoute>
 
 
               <PrivateRoute path="/admin">
@@ -62,11 +62,14 @@ function App() {
               <Route path="/login">
                 <Login />
               </Route>
+
+              <Route path="*">
+                <NoMatch />
+              </Route>
             </Switch>
           </div>
         </Router>
       </div>
-
     </UserContext.Provider>
 
   );

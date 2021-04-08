@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { Button } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router';
 import { UserContext } from '../../App';
 import { createUserWithEmailAndPassword, handleGoogleSignIn, handleSignOut, initializeLoginFramework, signInWithEmailAndPassword } from './loginManager';
@@ -78,21 +79,6 @@ const Login = () => {
 
     return (
         <div style={{ textAlign: 'center' }}>
-            { user.isSignedIn ? <button onClick={signOut}>Sign Out</button> :
-                <button onClick={googleSignIn}>Google Sign In</button>
-            }
-
-            <br />
-
-            {
-                user.isSignedIn && <div>
-                    <p>Welcome, {user.name}!</p>
-                    <p>Your email: {user.email}</p>
-                    <img src={user.photo} alt="" />
-                </div>
-            }
-
-            <h1>Our own Authentication</h1>
             <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
             <label htmlFor="newUser">New User Sign up</label>
             <form onSubmit={handleSubmit}>
@@ -102,10 +88,18 @@ const Login = () => {
                 <br />
                 <input type="password" name="password" onBlur={handleBlur} placeholder="Your Password" required />
                 <br />
+                <br />
                 <input type="submit" value={newUser ? 'Sign up' : 'Sign in'} />
             </form>
+
             <p style={{ color: 'red' }}>{user.error}</p>
             { user.success && <p style={{ color: 'green' }}>User {newUser ? 'created' : 'Logged In'} successfully</p>}
+
+            <br />
+
+            { user.isSignedIn ? <button onClick={signOut}>Sign Out</button> :
+                <Button onClick={googleSignIn}>Google Sign In</Button>
+            }
         </div>
     );
 };

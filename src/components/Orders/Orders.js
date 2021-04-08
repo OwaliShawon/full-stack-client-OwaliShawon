@@ -11,7 +11,6 @@ const Orders = () => {
     }, [])
     return (
         <div>
-
             {
                 orders.map((order) => <Order order={order}></Order>)
             }

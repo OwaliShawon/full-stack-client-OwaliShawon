@@ -4,8 +4,15 @@ const Order = (props) => {
     const { name, weight, price, imageUrl } = props.order;
     return (
         <div>
-            <h1>this is order details</h1>
-            <h1>{name}</h1>
+            <table className="table">
+                <tbody>
+                    <tr>
+                        <td>{name}</td>
+                        <td>{weight}</td>
+                        <td>${price}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     );
 };

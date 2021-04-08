@@ -8,8 +8,6 @@ const DeleteProduct = (props) => {
         console.log(id);
         fetch('http://localhost:5000/deleteProduct/' + id, {
             method: 'DELETE',
-            // headers: { 'Content-Type': 'application/json' },
-            // body: JSON.stringify(id)
         })
             .then(() => { console.log('remove') })
 

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
 import Inventory from '../Inventory/Inventory';
 import Product from '../Product/Product';
-// import jQuery from 'jquery'
 
 const Home = () => {
 
@@ -10,16 +9,14 @@ const Home = () => {
 
     useEffect(() => {
         displaySpinnerToggle(true);
-        fetch('http://localhost:5000/products')
+        fetch('https://dorakata-shop.herokuapp.com/products')
             .then((response) => response.json())
             .then(data => {
                 setProducts(data)
                 displaySpinnerToggle(false);
             })
-        // displaySpinnerToggle(false);
-    }, [])
 
-    // console.log(products);
+    }, [])
 
     const displaySpinnerToggle = (show) => {
         if (show) {

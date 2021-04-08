@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 
 const DeleteProduct = (props) => {
@@ -6,7 +7,7 @@ const DeleteProduct = (props) => {
 
     const deleteHandlerProduct = id => {
         console.log(id);
-        fetch('http://localhost:5000/deleteProduct/' + id, {
+        fetch('https://dorakata-shop.herokuapp.com/deleteProduct/' + id, {
             method: 'DELETE',
         })
             .then(() => { console.log('remove') })
@@ -14,12 +15,12 @@ const DeleteProduct = (props) => {
     }
 
     return (
-        <div>
-            <h1>{name}</h1>
-            <h1>{weight}</h1>
-            <h1>{price}</h1>
-            <h1>{_id}</h1>
-            <button onClick={() => deleteHandlerProduct(_id)}>Delete</button>
+        <div className='App'>
+            <h4>{name}</h4>
+            <h5>Weight: {weight}</h5>
+            <h5>Price: {price}</h5>
+            <Button onClick={() => deleteHandlerProduct(_id)}>Delete</Button>
+            <hr />
         </div>
     );
 };

@@ -5,14 +5,13 @@ const ManageProduct = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://dorakata-shop.herokuapp.com/products')
             .then((response) => response.json())
             .then(data => setProducts(data))
     }, [])
 
     return (
         <div>
-            <h1>Manage Product</h1>
             <div>
                 {
                     products.map((product) => <DeleteProduct product={product}></DeleteProduct>)

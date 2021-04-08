@@ -11,14 +11,6 @@ const Header = () => {
 
     let AuthButton;
 
-
-
-    // const isLoggedIn = {
-    //     if(loggedInUser) {
-    //         return <Link>{loggedInUser.name}</Link>;
-    //     }
-    // }
-
     return (
         <div className="header">
             <Link to='/'><img src={logo} alt="" /></Link>

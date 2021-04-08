@@ -29,7 +29,6 @@ function App() {
         <Router>
           <div>
             <Header></Header>
-            {/* <hr /> */}
             <Switch>
               <Route exact path="/">
                 <Home />

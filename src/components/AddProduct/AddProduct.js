@@ -6,7 +6,7 @@ const AddProduct = () => {
 
     const handleAddProduct = (productDetails) => {
         // const product = {};
-        fetch('http://localhost:5000/addProduct', {
+        fetch('https://dorakata-shop.herokuapp.com/addProduct', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
